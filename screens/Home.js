@@ -1,16 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native'
+import { View, Text } from 'react-native'
+import globalStyles from '../styles'
+
 
 export default function Home(){
     return (
-        <View style={style.containder}>
-            <Text>HOME</Text>
+        <View style={globalStyles.container}>
+            <Text style={globalStyles.titleText}>HOME</Text>
         </View>
     )
 }
-
-const style = StyleSheet.create({
-    containder: {
-        padding: 24,
-    }
-})
