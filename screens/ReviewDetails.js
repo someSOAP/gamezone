@@ -1,12 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import globalStyles from '../styles'
 
 
-export default function ReviewDetails(){
+export default function ReviewDetails({ navigation }){
+
+    const title = navigation.getParam("title")
+    const body = navigation.getParam("body")
+    const rating = navigation.getParam("rating")
+
     return (
         <View style={globalStyles.container}>
-            <Text>ReviewDetails</Text>
+            <Text>{title}</Text>
+            <Text>{body}</Text>
+            <Text>{rating}</Text>
         </View>
     )
 }
