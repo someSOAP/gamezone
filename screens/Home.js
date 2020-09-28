@@ -14,7 +14,7 @@ export default function Home({ navigation }){
     return (
         <View style={globalStyles.container}>
             <FlatList
-                keyExtractor = {(item, index) => String(index)}
+                keyExtractor = { (item, index) => String(index) }
                 data={reviews}
                 renderItem={({ item }) => (
                     <TouchableOpacity onPress={()=> navigation.navigate("ReviewDetails", item)}>
