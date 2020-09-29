@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Home, ReviewDetails } from '../screens'
 
-import Header from '../components/shared/Header'
+import Header from '../components/Header'
 
 const screens = {
     Home: {
