@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
-
 import Card from '../components/Card';
 import ModalForm from '../components/ModalForm';
+import ReviewForm from './ReviewForm'
+
 import globalStyles from '../styles'
 
 
@@ -19,15 +20,26 @@ export default function Home({ navigation }){
     return (
         <View style={globalStyles.container}>
         
-
-            <ModalForm visible={modalOpen} onClose={()=>setModalOpen(false)}/>
+            <ModalForm 
+                visible={modalOpen} 
+                onClose={()=>setModalOpen(false)}
+            >
+                <ReviewForm 
+                    onSubmit = {(review)=>{
+                        review.key = Math.random().toString();
+                        setReviews((currentReviews)=>{
+                            return [...currentReviews, review];
+                        })
+                        setModalOpen(false)
+                    }}
+                />
+            </ModalForm>
             <MaterialIcons 
                 style={style.modalToggle}
                 name = "add"
                 size = {24}
                 onPress={()=>setModalOpen(true)}
             />
-
             <FlatList
                 keyExtractor = { (item, index) => String(index) }
                 data={reviews}
